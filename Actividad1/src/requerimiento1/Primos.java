@@ -1,6 +1,6 @@
-package actividad1;
+package requerimiento1;
 
-public class Primos {
+public class Primos implements Runnable{
 
 	public int numero;
 
@@ -26,10 +26,11 @@ public class Primos {
 	// Para saber si un número es primo debe ser divisible solo 
 	// por si mismo y por 1
 	
-	public boolean esPrimo() {
-		boolean esPrimo = false;
+	@Override
+	public void run() {
 		int cont = 0;
 		int numDivisiblesPrimo = 2;
+		long inicio = System.currentTimeMillis();
 		
 		for(int i = 1; i <= numero; i++) {
 			if(numero % i == 0) {
@@ -38,10 +39,15 @@ public class Primos {
 		}
 		
 		if(cont == numDivisiblesPrimo) {
-			esPrimo = true;
+			System.out.println("El número " + this.numero + " es primo");
+		} else {
+			System.out.println("El número " + this.numero + " no es primo");
 		}
 		
-		return esPrimo;
+		long fin = System.currentTimeMillis();
+		int tiempo = (int) ((fin - inicio));
+		System.out.println("Hilo: " + Thread.currentThread().getName() + " acabado y ha tardado: " + tiempo + " milisegundos");
+
 	}
 
 }
