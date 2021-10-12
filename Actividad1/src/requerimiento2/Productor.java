@@ -17,6 +17,8 @@ public class Productor implements Runnable {
 				e.printStackTrace();
 			}
 			
+			//Email email = new Email
+			
 			String mensaje = "El nombre del remitente es: " + nombre + " y su ID es: " + email.getId();
 			cola.addMensaje(mensaje);
 		}
