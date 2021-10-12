@@ -22,7 +22,7 @@ public class Principal {
 		t4.setName("Primo4");
 		
 		Scanner sc = new Scanner (System.in);
-		System.out.println("Introduce 4 números:");
+		System.out.println("Introduce 4 números enteros:");
 		primo1.setNumero(sc.nextInt());		
 		primo2.setNumero(sc.nextInt());
 		primo3.setNumero(sc.nextInt());
@@ -34,7 +34,4 @@ public class Principal {
 		t3.start();
 		t4.start();
 	}
-
-
-
 }

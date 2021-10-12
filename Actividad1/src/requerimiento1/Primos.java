@@ -30,7 +30,7 @@ public class Primos implements Runnable{
 	public void run() {
 		int contador = 0;
 		int numDivisiblesPrimo = 2;
-		long inicio = System.currentTimeMillis();
+		long inicioHilo = System.currentTimeMillis();
 		
 		for(int i = 1; i <= numero; i++) {
 			if(numero % i == 0) {
@@ -44,9 +44,9 @@ public class Primos implements Runnable{
 			System.out.println("El número " + this.numero + " no es primo");
 		}
 		
-		long final = System.currentTimeMillis();
-		int tiempo = (int) ((fin - inicio));
-		System.out.println("Hilo: " + Thread.currentThread().getName() + " acabado y ha tardado: " + tiempo + " milisegundos");
+		long finalHilo = System.currentTimeMillis();
+		int duracionHilo = (int) ((finalHilo - inicioHilo));
+		System.out.println(" El hilo: " + Thread.currentThread().getName() + " acaba de terminar y ha tardado: " + duracionHilo + " milisegundos");
 
 	}
 
