@@ -1,24 +1,14 @@
 package requerimiento2;
 
 public class Email {
-	String id, asunto, cuerpo;
-	Productor remitente;
-	Consumidor destinatario;
-	
-	public Email(String id, String asunto, String cuerpo, Productor remitente, Consumidor destinatario) {
-		super();
-		this.id = id;
-		this.asunto = asunto;
-		this.cuerpo = cuerpo;
-		this.remitente = remitente;
-		this.destinatario = destinatario;
-	}
+	private int id;
+	private String asunto, cuerpo, remitente, destinatario;
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -38,19 +28,19 @@ public class Email {
 		this.cuerpo = cuerpo;
 	}
 
-	public Productor getRemitente() {
+	public String getRemitente() {
 		return remitente;
 	}
 
-	public void setRemitente(Productor remitente) {
+	public void setRemitente(String remitente) {
 		this.remitente = remitente;
 	}
 
-	public Consumidor getDestinatario() {
+	public String getDestinatario() {
 		return destinatario;
 	}
 
-	public void setDestinatario(Consumidor destinatario) {
+	public void setDestinatario(String destinatario) {
 		this.destinatario = destinatario;
 	}
 

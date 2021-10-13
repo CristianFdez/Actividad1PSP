@@ -7,9 +7,9 @@ public class Cola {
 	
 		public final static int MAX_ELEMENTOS = 5;
 
-		private Queue<String> cola = new LinkedList<>();
+		private Queue<Email> cola = new LinkedList<>();
 
-		public synchronized void addMensaje(String mensaje){
+		public synchronized void addEmail(Email email){
 
 			while(cola.size() == MAX_ELEMENTOS){
 				try {
@@ -19,12 +19,17 @@ public class Cola {
 					e.printStackTrace();
 				}
 			}
+			
+			if (email.getDestinatario() != "pikachu@gmail.com") {
+				cola.offer(email);
+				notify();
+			}else {
+				System.out.println("El destinatario del siguiente email es pikachu@gmail.com, por lo que no se añadirá a la cola");
+			}
 
-			cola.offer(mensaje);
-			notify();
 		}
 		
-		public synchronized String getMensaje(){
+		public synchronized Email getEmail(){
 			while(cola.size() == 0){
 				try {
 					wait();
@@ -33,10 +38,10 @@ public class Cola {
 					e.printStackTrace();
 				}
 			}
-			String s = cola.poll();
+			Email e = cola.poll();
 
 			notify();
-			return s;
+			return e;
 		}
 		
 

@@ -4,10 +4,20 @@ public class Productor implements Runnable {
 	
 	String nombre;
 	Cola cola;
-	Email email;
+
 	
+	public Productor(String nombre, Cola cola) {
+		super();
+		this.nombre = nombre;
+		this.cola = cola;
+	}
+
+
 	@Override
 	public void run() {
+		
+		GeneradorEmails ge = new GeneradorEmails();
+		
 		for(int i = 1;i <= 10;i++){
 			
 			try {
@@ -17,10 +27,12 @@ public class Productor implements Runnable {
 				e.printStackTrace();
 			}
 			
-			//Email email = new Email
+			Email email = ge.generarEmail();		
+			cola.addEmail(email);
 			
-			String mensaje = "El nombre del remitente es: " + nombre + " y su ID es: " + email.getId();
-			cola.addMensaje(mensaje);
+			System.out.println(nombre + " ha producido el email " + email.toString());
+			
+
 		}
 		
 	}
