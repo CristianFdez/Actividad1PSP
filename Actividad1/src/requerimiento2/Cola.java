@@ -10,17 +10,18 @@ public class Cola {
 		private Queue<Email> cola = new LinkedList<>();
 
 		public synchronized void addEmail(Email email){
-
-			while(cola.size() == MAX_ELEMENTOS){
-				try {
-					wait();					
-				} catch (InterruptedException e) {
-
-					e.printStackTrace();
-				}
-			}
 			
-			if (email.getDestinatario() != "pikachu@gmail.com") {
+			if (!email.getDestinatario().contains("pikachu@gmail.com")){
+				
+				while(cola.size() == MAX_ELEMENTOS){
+					try {
+						wait();					
+					} catch (InterruptedException e) {
+
+						e.printStackTrace();
+					}
+				}
+				
 				cola.offer(email);
 				notify();
 			}else {
