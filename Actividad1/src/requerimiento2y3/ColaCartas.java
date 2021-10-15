@@ -1,4 +1,4 @@
-package requerimiento2;
+package requerimiento2y3;
 
 import java.util.LinkedList;
 import java.util.Queue;
