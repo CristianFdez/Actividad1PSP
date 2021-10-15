@@ -6,25 +6,31 @@ import java.util.Queue;
 public class Cola {
 	
 		public final static int MAX_ELEMENTOS = 5;
-		//creamos nuestra cola para meter y sacar los mensajes
-		private Queue<String> cola = new LinkedList<>();
 
-		public synchronized void addMensaje(String mensaje){
+		private Queue<Email> cola = new LinkedList<>();
 
-			while(cola.size() == MAX_ELEMENTOS){
-				try {
-					wait();					
-				} catch (InterruptedException e) {
+		public synchronized void addEmail(Email email){
+			
+			if (!email.getDestinatario().contains("pikachu@gmail.com")){
+				
+				while(cola.size() == MAX_ELEMENTOS){
+					try {
+						wait();					
+					} catch (InterruptedException e) {
 
-					e.printStackTrace();
+						e.printStackTrace();
+					}
 				}
+				
+				cola.offer(email);
+				notify();
+			}else {
+				System.out.println("El destinatario del siguiente email es pikachu@gmail.com, por lo que no se permitira que se añada a la cola");
 			}
-			//añadimos el mensaje a la cola
-			cola.offer(mensaje);
-			notify();
+
 		}
 		
-		public synchronized String getMensaje(){
+		public synchronized Email getEmail(){
 			while(cola.size() == 0){
 				try {
 					wait();
@@ -33,10 +39,11 @@ public class Cola {
 					e.printStackTrace();
 				}
 			}
-			//sacamos el mensaje de la cola
-			String s = cola.poll();
+			Email e = cola.poll();
 
 			notify();
-			return s;
+			return e;
 		}
+		
+
 }
