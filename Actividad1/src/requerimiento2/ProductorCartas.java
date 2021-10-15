@@ -1,12 +1,12 @@
 package requerimiento2;
 
-public class Productor implements Runnable {
+public class ProductorCartas implements Runnable {
 	
 	String nombre;
-	Cola cola;
+	ColaCartas cola;
 
 	
-	public Productor(String nombre, Cola cola) {
+	public ProductorCartas(String nombre, ColaCartas cola) {
 		super();
 		this.nombre = nombre;
 		this.cola = cola;

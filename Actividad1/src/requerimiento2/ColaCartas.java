@@ -3,7 +3,7 @@ package requerimiento2;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Cola {
+public class ColaCartas {
 	
 		public final static int MAX_ELEMENTOS = 5;
 

@@ -1,11 +1,11 @@
 package requerimiento2;
 
-public class Consumidor implements Runnable{
+public class ConsumidorCartas implements Runnable{
 	String nombre;
-	Cola cola;
+	ColaCartas cola;
 
 	
-	public Consumidor(String nombre, Cola cola) {
+	public ConsumidorCartas(String nombre, ColaCartas cola) {
 		super();
 		this.nombre = nombre;
 		this.cola = cola;
