@@ -46,8 +46,8 @@ public class Email {
 
 	@Override
 	public String toString() {
-		return "Email [id=" + id + ", asunto=" + asunto + ", cuerpo=" + cuerpo + ", remitente=" + remitente
-				+ ", destinatario=" + destinatario + "]";
+		return "\n\tEmail id: " + id + "\n\tDestinatario: " + destinatario + "\n\tRemitente: " + remitente + "\n\tAsunto : " + asunto
+				+ "\n\tCuerpoMensaje : " + cuerpo + ".";
 	}
 	
 	

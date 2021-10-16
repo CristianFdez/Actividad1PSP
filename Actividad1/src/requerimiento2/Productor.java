@@ -29,13 +29,7 @@ public class Productor implements Runnable {
 			
 			Email email = ge.generarEmail();		
 			cola.addEmail(email);
-			
-			if (!email.getDestinatario().contains("pikachu@gmail.com")){
-				System.out.println(nombre + " ha producido el email " + email.toString());					
-			}else {
-				i--;
-			}
-							
+										
 		}
 		
 	}

@@ -11,7 +11,7 @@ public class Cola {
 
 		public synchronized void addEmail(Email email){
 			
-			if (!email.getDestinatario().contains("pikachu@gmail.com")){
+			if (!email.getDestinatario().equals("pikachu@gmail.com")){
 				
 				while(cola.size() == MAX_ELEMENTOS){
 					try {
@@ -23,9 +23,11 @@ public class Cola {
 				}
 				
 				cola.offer(email);
+				System.out.println("Se ha producido el email: " + email.toString());
+				
 				notify();
 			}else {
-				System.out.println("El destinatario del siguiente email es pikachu@gmail.com, por lo que no se añadirá a la cola");
+				System.out.println("\n****************** EL EMAIL " + email.getId() + " NO SE GUARDA EN LA COLA. NO ENVIAMOS EMAILS A PIKACHU@GMAIL.COM ******************\n");
 			}
 
 		}
