@@ -35,6 +35,13 @@ public class Email {
 	public void setCuerpoMensaje(String cuerpoMensaje) {
 		this.cuerpoMensaje = cuerpoMensaje;
 	}
+	@Override
+	public String toString() {
+		return "Email [id = " + id + ", remitente = " + remitente + ", destinatario = " + destinatario + ", asunto = " + asunto
+				+ ", cuerpoMensaje = " + cuerpoMensaje + "]";
+	}
+	
+	
 
 	
 }
